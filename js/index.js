@@ -119,3 +119,7 @@ contactHeading.innerText = siteContent.contact['contact-h4'];
 for (let i = 0; i < contactParagraphs.length; i++) {
   contactParagraphs[i].innerText = contactArr[i];
 }
+
+/* Footer */
+let copyright = document.querySelector('footer p');
+copyright.innerText = siteContent.footer.copyright;
