@@ -53,35 +53,45 @@ for (let i = 0; i < navItem.length; i++) {
   navItem[i].innerText = siteContent.nav['nav-item-' + (i + 1)];
 }
 
-// CTA Section
+/* CTA Section */
+
+// Query Selectors
 let ctaHeading = document.querySelector('.cta-text h1');
 let ctaBtn = document.querySelector('.cta-text button');
 let ctaImg = document.querySelector('#cta-img');
 
+// Set innerText
 ctaHeading.innerText = siteContent.cta.h1;
 ctaBtn.innerText = siteContent.cta.button;
+
+// Set src attribute
 ctaImg.setAttribute('src', siteContent.cta['img-src']);
 
-// Main Content Section
+/* Main Content Section */
+
+// Query Selectors
+let mainContent = siteContent['main-content'];
 let mainContentHeadings = document.querySelectorAll('.text-content h4');
 let mainContentText = document.querySelectorAll('.text-content p');
 let mainContentImg = document.querySelector('#middle-img');
 
+// Store Object Values in Array for looping
 let mainContentHeadingArr = [
-  siteContent['main-content']['features-h4'],
-  siteContent['main-content']['about-h4'],
-  siteContent['main-content']['services-h4'],
-  siteContent['main-content']['product-h4'],
-  siteContent['main-content']['vision-h4']
+  mainContent['features-h4'],
+  mainContent['about-h4'],
+  mainContent['services-h4'],
+  mainContent['product-h4'],
+  mainContent['vision-h4']
 ];
 let mainContentTextArr = [
-  siteContent['main-content']['features-content'],
-  siteContent['main-content']['about-content'],
-  siteContent['main-content']['services-content'],
-  siteContent['main-content']['product-content'],
-  siteContent['main-content']['vision-content']
+  mainContent['features-content'],
+  mainContent['about-content'],
+  mainContent['services-content'],
+  mainContent['product-content'],
+  mainContent['vision-content']
 ];
 
+// Loop and apply innerText to elements from array
 for (
   let i = 0;
   i < mainContentHeadings.length && i < mainContentText.length;
@@ -91,7 +101,21 @@ for (
   mainContentText[i].innerText = mainContentTextArr[i];
 }
 
+// Set src attribute for middle-img
 mainContentImg.setAttribute(
   'src',
   siteContent['main-content']['middle-img-src']
 );
+
+/* Contact Section */
+let contactHeading = document.querySelector('.contact h4');
+let contactParagraphs = document.querySelectorAll('.contact p');
+let contact = siteContent.contact;
+
+let contactArr = [contact.address, contact.phone, contact.email];
+
+contactHeading.innerText = siteContent.contact['contact-h4'];
+
+for (let i = 0; i < contactParagraphs.length; i++) {
+  contactParagraphs[i].innerText = contactArr[i];
+}
