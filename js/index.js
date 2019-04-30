@@ -46,10 +46,52 @@ const siteContent = {
 let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src']);
 
+// Navigation
 let navItem = document.querySelectorAll('nav a');
 
 for (let i = 0; i < navItem.length; i++) {
   navItem[i].innerText = siteContent.nav['nav-item-' + (i + 1)];
 }
 
-console.log(navItem);
+// CTA Section
+let ctaHeading = document.querySelector('.cta-text h1');
+let ctaBtn = document.querySelector('.cta-text button');
+let ctaImg = document.querySelector('#cta-img');
+
+ctaHeading.innerText = siteContent.cta.h1;
+ctaBtn.innerText = siteContent.cta.button;
+ctaImg.setAttribute('src', siteContent.cta['img-src']);
+
+// Main Content Section
+let mainContentHeadings = document.querySelectorAll('.text-content h4');
+let mainContentText = document.querySelectorAll('.text-content p');
+let mainContentImg = document.querySelector('#middle-img');
+
+let mainContentHeadingArr = [
+  siteContent['main-content']['features-h4'],
+  siteContent['main-content']['about-h4'],
+  siteContent['main-content']['services-h4'],
+  siteContent['main-content']['product-h4'],
+  siteContent['main-content']['vision-h4']
+];
+let mainContentTextArr = [
+  siteContent['main-content']['features-content'],
+  siteContent['main-content']['about-content'],
+  siteContent['main-content']['services-content'],
+  siteContent['main-content']['product-content'],
+  siteContent['main-content']['vision-content']
+];
+
+for (
+  let i = 0;
+  i < mainContentHeadings.length && i < mainContentText.length;
+  i++
+) {
+  mainContentHeadings[i].innerText = mainContentHeadingArr[i];
+  mainContentText[i].innerText = mainContentTextArr[i];
+}
+
+mainContentImg.setAttribute(
+  'src',
+  siteContent['main-content']['middle-img-src']
+);
