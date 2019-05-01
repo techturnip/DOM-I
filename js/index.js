@@ -47,11 +47,25 @@ let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src']);
 
 /* Navigation */
+let newItem = document.createElement('a');
+let newItem2 = document.createElement('a');
 let navItem = document.querySelectorAll('nav a');
+let nav = document.querySelector('nav');
+
+newItem.textContent = 'Blog';
+newItem2.textContent = 'Home';
 
 navItem.forEach(
-  (item, i) => (item.textContent = siteContent.nav['nav-item-' + (i + 1)])
+  (item, i) =>
+    (item.textContent = siteContent.nav['nav-item-' + (i + 1)]) &&
+    (item.style.color = 'green')
 );
+
+nav.appendChild(newItem);
+nav.prepend(newItem2);
+
+newItem.style.color = 'green';
+newItem2.style.color = 'green';
 
 /* CTA Section */
 
